@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        html {
+            background: rgb(125, 150, 156);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            color: antiquewhite;
+
+        }
+
+        .panels {
+            min-height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .panel.open {
+            flex: 5;
+            font-size: 45px;
+        }
+
+        .panel {
+
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+
+            box-shadow: inset 0 0 0 5px #24252533;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            transition:
+                font-size 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                flex 1.3s cubic-bezier(0.68, -0.55, 0.165, 1.05);
+            font-size: 30px;
+        }
+
+
+
+        .panel>* {
+            font-family: 'Indie Flower', cursive;
+            text-shadow: 2px 2px 2px #000;
+            transition: transform 0.5s;
+
+        }
+
+        .panel1 {
+            background-image: url(/image2/1612290262_7-p-arti-devochek-art-kartinki-7.jpg);
+        }
+
+        .panel2 {
+            background-image: url(./image2/73c86933ed51f8d9d8f5296a9b6359e3a9c7df62_hq.jpg);
+        }
+
+        .panel3 {
+            background-image: url(./image2/bef55f72cd2b43960ae1e1e52fba93e1--rapunzel-drawing-tangled.jpg);
+        }
+
+        .panel4 {
+            background-image: url(./image2/Krasivaya-art-devushka-anime-yarkie-kartinki_01.jpg);
+        }
+
+        .panel5 {
+            background-image: url(./image2/Krasivaya-art-devushka-anime-yarkie-kartinki_03.jpg);
+        }
+
+
+
+        .panel>*:first-child {
+            transform: translateY(-400%);
+        }
+
+        .panel.open-active>*:first-child {
+            transform: translateY(0%);
+        }
+
+        .panel>*:last-child {
+            transform: translateY(400%);
+        }
+
+        .panel.open-active>*:last-child {
+            transform: translateY(0%);
+        }
+    </style>
+
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Делай</p>
+            <p>Расслабляться</p>
+            <p>Дыши</p>
+        </div>
+        <div class="panel panel2">
+            <p>Думай</p>
+            <p>до того,</p>
+            <p>Помогай</p>
+        </div>
+        <div class="panel panel3">
+            <p>Не сдавайся</p>
+            <p>как</p>
+            <p>Мечтай</p>
+        </div>
+        <div class="panel panel4">
+            <p>Живи</p>
+            <p>накопиться</p>
+            <p>Наслаждайся</p>
+        </div>
+        <div class="panel panel5">
+            <p>Чувствуй</p>
+            <p>стресс</p>
+            <p>Радуйся</p>
+        </div>
+    </div>
+    <script>
+        const elements = document.querySelectorAll(".panel");
+        console.log(elements);
+
+        function openCenter() {
+            console.log(this)
+            this.classList.toggle('open')
+        };
+
+        function activeText() {
+            this.classList.toggle('open-active')
+        }
+
+        elements.forEach(panel => panel.addEventListener('click', openCenter));
+        elements.forEach(panel => panel.addEventListener('click', activeText));
+
+    </script>
+</body>
+
+</html>
